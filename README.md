@@ -1,6 +1,7 @@
 # README
 
-bundle install => installs gems, updates Gemfile.lock
+bundle install --without production => installs gems, updates Gemfile.lock, using sqlite3 in development and test and pg in production
+rails db:migrate => create the database
 rails db:setup => setups the database with 123 elements
 rails server => runs server, makes app available on local host
 rspec spec -fdoc => runs tests
