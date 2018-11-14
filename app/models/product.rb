@@ -4,10 +4,6 @@ class Product < ApplicationRecord
   validates :price, presence: true, length: { maximum: 7 }
   
   def self.search(search)
-    if search
-      where("lower(name || description) LIKE ?", "%#{search.downcase}%")
-    else
-      all
-    end
+    search ? where("lower(name || description) LIKE ?", "%#{search.downcase}%") : all
   end
 end
